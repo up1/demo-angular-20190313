@@ -24,13 +24,13 @@ export class BoardComponent implements OnInit {
     // TODO add data to notes[]
     data[0].split('. ').map(
       s => {
-        s = s.substring(0, 20)
+        s = s.substring(0, 20);
         this.notes.push(new Note(this.getUniqueId(), s));
       });
   }
 
   private getUniqueId() {
-    this.nextId = this.nextId || 0
+    this.nextId = this.nextId || 0;
     return this.nextId++;
   }
 
