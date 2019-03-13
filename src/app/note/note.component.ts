@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {Note} from '../models/note';
 
 @Component({
@@ -6,7 +6,7 @@ import {Note} from '../models/note';
   templateUrl: './note.component.html',
   styleUrls: ['./note.component.css']
 })
-export class NoteComponent implements OnInit {
+export class NoteComponent implements OnChanges {
   isEdit: boolean;
   title: string;
 
@@ -16,8 +16,8 @@ export class NoteComponent implements OnInit {
     console.log('Called constructor');
   }
 
-  ngOnInit() {
-    console.log('Called ngOnInit');
+  ngOnChanges(changes: any): void {
+    this.title = this.note.title;
   }
 
   onEdit() {
