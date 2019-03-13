@@ -12,9 +12,15 @@ export class BoardComponent implements OnInit {
   constructor() {
     this.notes.push(new Note(1, 'Note 1'));
     this.notes.push(new Note(2, 'Note 2'));
+    this.notes.push(new Note(3, 'Note 3'));
   }
 
   ngOnInit() {
   }
 
+  onSavedNote(savednote: Note) {
+    console.table(savednote);
+    // TODO :: Edit
+    console.table(this.notes);
+  }
 }

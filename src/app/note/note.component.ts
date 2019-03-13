@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {Note} from '../models/note';
 
 @Component({
@@ -11,9 +11,16 @@ export class NoteComponent implements OnChanges {
   title: string;
 
   @Input() note: Note;
+  @Output() savedNoteEvent: EventEmitter<Note> =
+       new EventEmitter<Note>();
 
-  constructor() {
-    console.log('Called constructor');
+  onSave(newTitle: string) {
+    console.log('Called onSave');
+    this.isEdit = false;
+    this.title = newTitle;
+    // Raise event
+    const savedNote = new Note(this.note.id, newTitle);
+    this.savedNoteEvent.emit(savedNote);
   }
 
   ngOnChanges(changes: any): void {
@@ -25,9 +32,5 @@ export class NoteComponent implements OnChanges {
     this.isEdit = true;
   }
 
-  onSave(newTitle: string) {
-    console.log('Called onSave');
-    this.isEdit = false;
-    this.title = newTitle;
-  }
+
 }

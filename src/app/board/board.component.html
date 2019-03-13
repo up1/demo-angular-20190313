@@ -1,3 +1,6 @@
 <div *ngFor="let note of notes">
-  <app-note [note]="note"></app-note>
+  <app-note
+    [note]="note"
+    (savedNoteEvent)="onSavedNote($event)"
+  ></app-note>
 </div>
