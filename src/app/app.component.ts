@@ -7,13 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   name = '';
-
-  save(input: string) {
-    this.name = input;
-  }
+  temp = '';
 
   // typeData(event: any) {
   //   this.temp = event.target.value;
   // }
 
+  save() {
+    this.name = this.temp;
+  }
 }

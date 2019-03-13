@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./note.component.css']
 })
 export class NoteComponent implements OnInit {
-  private isEdit: boolean;
+  isEdit: boolean;
   private title = 'New Note';
 
   constructor() {
