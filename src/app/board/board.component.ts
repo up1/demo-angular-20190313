@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Note} from '../models/note';
+import {BaconService} from '../services/bacon.service';
 
 @Component({
   selector: 'app-board',
@@ -9,10 +10,17 @@ import {Note} from '../models/note';
 export class BoardComponent implements OnInit {
   notes = [];
 
-  constructor() {
-    this.notes.push(new Note(1, 'Note 1'));
-    this.notes.push(new Note(2, 'Note 2'));
-    this.notes.push(new Note(3, 'Note 3'));
+  constructor(private baconService: BaconService) {
+    // this.notes.push(new Note(1, 'Note 1'));
+    // this.notes.push(new Note(2, 'Note 2'));
+    // this.notes.push(new Note(3, 'Note 3'));
+    this.baconService.getData()
+      .subscribe(data => this.processData(data));
+  }
+
+  private processData(data: string) {
+    console.table(data);
+    // TODO add data to notes[]
   }
 
   ngOnInit() {
@@ -29,4 +37,6 @@ export class BoardComponent implements OnInit {
   onDeletedNote(deletedId: number) {
     this.notes = this.notes.filter(note => note.id !== deletedId);
   }
+
+
 }
