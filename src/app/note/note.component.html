@@ -1,0 +1,14 @@
+<div class="note" *ngIf="!isEdit">
+  <p>{{title}}</p>
+  <span>
+      <button id="edit" (click)="onEdit()">Edit</button>
+      <button id="remove">Remove</button>
+  </span>
+</div>
+
+<div class="note" *ngIf="isEdit">
+  <textarea #newTitle></textarea>
+  <span>
+      <button id="save" (click)="onSave(newTitle.value)">Save</button>
+  </span>
+</div>

@@ -1,0 +1,16 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+
+  <!--<input type="text" (keyup)="typeData($event)">-->
+  <!--<button id="save" (click)="save()">-->
+  <input type="text" #data>
+  <button id="save" (click)="save(data.value)">
+
+  Save
+  </button>
+  <h1>
+    Hello {{ name | uppercase | titlecase }}
+  </h1>
+  <div>
+
+    <app-note></app-note>
