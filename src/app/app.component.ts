@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   name = '';
   temp = '';
+  show = false;
 
   // typeData(event: any) {
   //   this.temp = event.target.value;
