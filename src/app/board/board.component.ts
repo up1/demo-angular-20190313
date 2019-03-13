@@ -7,10 +7,11 @@ import {Note} from '../models/note';
   styleUrls: ['./board.component.css']
 })
 export class BoardComponent implements OnInit {
-  defaultTitle: Note;
+  notes = [];
 
   constructor() {
-    this.defaultTitle = new Note(1, 'XXX');
+    this.notes.push(new Note(1, 'Note 1'));
+    this.notes.push(new Note(2, 'Note 2'));
   }
 
   ngOnInit() {
