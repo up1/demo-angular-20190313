@@ -21,6 +21,8 @@ export class BoardComponent implements OnInit {
   onSavedNote(savednote: Note) {
     console.table(savednote);
     // TODO :: Edit
+    this.notes = this.notes.map(note =>
+                    note.id === savednote.id ? savednote : note);
     console.table(this.notes);
   }
 }
