@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Note} from '../models/note';
 
 @Component({
   selector: 'app-note',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoteComponent implements OnInit {
   isEdit: boolean;
-  private title = 'New Note';
+  title: string;
+
+  @Input() note: Note;
 
   constructor() {
     console.log('Called constructor');

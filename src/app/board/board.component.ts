@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Note} from '../models/note';
 
 @Component({
   selector: 'app-board',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./board.component.css']
 })
 export class BoardComponent implements OnInit {
+  defaultTitle: Note;
 
-  constructor() { }
+  constructor() {
+    this.defaultTitle = new Note(1, 'XXX');
+  }
 
   ngOnInit() {
   }
