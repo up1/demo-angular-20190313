@@ -25,4 +25,8 @@ export class BoardComponent implements OnInit {
                     note.id === savednote.id ? savednote : note);
     console.table(this.notes);
   }
+
+  onDeletedNote(deletedId: number) {
+    this.notes = this.notes.filter(note => note.id !== deletedId);
+  }
 }

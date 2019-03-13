@@ -12,7 +12,9 @@ export class NoteComponent implements OnChanges {
 
   @Input() note: Note;
   @Output() savedNoteEvent: EventEmitter<Note> =
-       new EventEmitter<Note>();
+    new EventEmitter<Note>();
+  @Output() deletedNoteEvent: EventEmitter<number> =
+    new EventEmitter<number>();
 
   onSave(newTitle: string) {
     console.log('Called onSave');
@@ -33,4 +35,8 @@ export class NoteComponent implements OnChanges {
   }
 
 
+  onRemove() {
+    console.log('Called onRemove');
+    this.deletedNoteEvent.emit(this.note.id);
+  }
 }
